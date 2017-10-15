@@ -1,0 +1,9 @@
+.wrapper-todo-form {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.wrapper-todo-form .form .input-group {
+  padding: 15px;
+  background: white;
+}

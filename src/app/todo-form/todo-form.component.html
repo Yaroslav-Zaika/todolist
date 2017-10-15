@@ -1,0 +1,10 @@
+<div class="row justify-content-center wrapper-todo-form">
+  <form class="form col-12 col-md-8 col-lg-6">
+    <div class="input-group justify-content-center">
+      <input class="form-control col-10" type="text"
+        placeholder="What needs to be done?" #todo
+        (keyup.enter)="create(todo.value); todo.value=''"
+        (blur)="create(todo.value); todo.value=''">
+    </div>
+  </form>
+</div>

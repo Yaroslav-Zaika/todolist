@@ -1,0 +1,44 @@
+.todo-card, .menu-nav {
+  margin: 1px 0;
+  padding: 10px;
+  background-color: white;;
+  color: black;
+}
+
+.nav > span {
+  padding-left: 5px;
+}
+
+ul {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: inline;
+  list-style-type: none;
+}
+
+a {
+  padding: 0 8px;
+  color: black;
+}
+
+a.active {
+  border-radius: 3px;
+  padding: 0 7px;
+  border: 1px solid gray;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.icon, .clear {
+  cursor: pointer;
+}
+
+.clear:hover {
+  text-decoration: underline;
+}

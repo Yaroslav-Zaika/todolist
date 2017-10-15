@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-12 col-md-8 col-lg-6" *ngIf="todos.length || isEmpty">
+    <div class="row menu-nav align-items-center">
+      <span class="col-1 align-middle icon" (click)="state = !state; toggleAll(state)">
+        <i [ngClass]="{'fa-square-o': !state, 'fa-check-square-o': state}" class="fa" aria-hidden="true"></i>
+      </span>
+      <span class="col-1 align-middle icon" (click)="todos.reverse(); reverse = !reverse">
+        <i class="fa fa-lg" [ngClass]="{'fa-sort-asc': reverse, 'fa-sort-desc': !reverse}" aria-hidden="true"></i>
+      </span>
+      <form class="list-form col-9">
+        <div class="input-group">
+          <input class="form-control" type="text"
+            placeholder="What you need to find?" #todo
+            (keyup)="search(todo.value);"
+            (blur)="search(todo.value); todo.value=''">
+        </div>
+      </form>
+      <span class="col-1 align-middle icon" (click)="deleteAll()">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </span>
+    </div>
+    <div class="todo-card" *ngIf="todos[0]['search'] == 404">
+      <div class="text-center">No Results</div>
+    </div>
+    <div *ngIf="todos[0]['search'] != 404">
+      <div class="todo-card row align-items-center" *ngFor="let todo of todos">
+        <span class="col-1 align-middle icon" (click)="toggle(todo)">
+          <i [ngClass]="{'fa-square-o': !todo.completed, 'fa-check-square-o': todo.completed}" class="fa" aria-hidden="true"></i>
+        </span>
+        <span class="col-10">{{todo.title}}</span>
+        <span class="col-1 align-middle icon" (click)="delete(todo)">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="row menu-nav align-items-center">
+        <span class="col-3">{{todos.length}} items left</span>
+        <ul class="col-6">
+          <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">All</a></li>
+          <li><a [routerLink]="['/', 'active']" routerLinkActive="active">Active</a></li>
+          <li><a [routerLink]="['/', 'completed']" routerLinkActive="active">Completed</a></li>
+        </ul>
+        <span class="col-3 clear" *ngIf="isCompleted" (click)="clear()">Clear completed</span>
+      </div>
+    </div>
+  </div>
+</div>
